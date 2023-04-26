@@ -1,10 +1,5 @@
 import pandas as pd
 import streamlit as st
-import plotly.express as px
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-import seaborn as sns
-from matplotlib import pyplot as plt
 
 st.set_page_config(
     page_title='ENACOM: Reporte de Accesos a Internet Zonas y Tecnología en Cara al Incremento del Nivel del Mar',
@@ -70,7 +65,7 @@ def etl(ds: str):
 
 
 def kpi1_func(df: pd.DataFrame, provincia: str, year: int, KPI:int):
-    
+
     df = df[df.Provincia.str.lower() == provincia.lower()]
     df = df[df['Año'] == year]
     df.sort_values('Trimestre', ascending=True, inplace=True)
